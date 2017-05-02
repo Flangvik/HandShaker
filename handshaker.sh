@@ -88,26 +88,7 @@ pyrit"
 		clear
 	fi
 
-	echo $BLU"""NNNNDND88O~~~~~~~~~~~~~~~~~~=~~==~~===~=============+====+==++==++:ZOOO?8D8O.OOO
-DNDDDDD8DDD8O=~~~~~~~~~~~~~~~~~~~~=~~~~~~===================$7?+.$D.Z,$DDODINZO8
-NND88D8NDDDDO888Z~~~~~~~~~~~~~~~~~~~~~~~==~~=~~==~=======,,Z8DD8D8DNNND8ZOONNND?
-MND8NNNDDN8DD8O8O8OZ~~~~~~~~~~~~~~~~~~7Z$?I?+====~~~===?,,:8DZOO+IDNNNDDDI+77+~7
-NNDMNNNDDNNDNNNNN8D8OZ~~~~~~~~:~~~~7$:::~~~=~:+++++++I?7::~?DND8+ONNNNND888DN8DZ
-NNNNMNMDNNNMDNNDDNDD.....::~~:~=IZ=++?+=?I?I+~~=+???77$Z8:~I8OZ8D$DD?~.:=888DZZN
-NNMNMNNNNMDN8NNDNDD....:===~~7=~==++==+II77$?+=::7I+II?7Z:~+N7Z~$NNNNDDDNNNNDD8,
-MNNNMNMNNNDNMDNDND,:..,=+++?+III?+==~+7O$$ONNI?+~~7+?I7$Z~:=?788Z8Z...$NDDOZ8DD8
-MNNNNNNNDNNNNNDNN~,,,,+++II7$$7?+==+8Z$7?7$ZIO7$II+?I?I$$7::+8~..?N8D$+$888O8D~O
-NMMMNDNNNNDNNNNN,,:,,+??I77I77?I?I8OZZII+?IIII+??I??II???O8:~+ZZDND$DDNN8.7O?MN?
-NNNNNNNNDNDMNDN,,,,,++?IIII7III$88OOZZ$7IIII??7$+?+?I?I+?Z7,::~$ND8O.:MNNOO8MO8D
-NMMNNNNNNNNMNMN::.,+++II777I7ODOOOZI$$OZZ??II=?II???+++??+?::::=NDO,~Z$NO8O8ND.O
-NNNNNNNNNNNNNNMM,,,,,,:I$777DOZZ$IIIO8D8$?++??I$I?????++++::::::8ND+Z8DDZ:Z?Z+?~
-DNNNNNNNNNNNNMM,,,,,,,,,,?ZO8O$7I?NMD88Z7$II??7IIIII?I++=:,::::::ODOIIZ==I~~~~~~
-,,8NNNNDNDNNNN~,,,,,,,,,,,8OOZII$DD8$O77IIZI?II=:~:?+,7=,,,,:,::::~+7I:::::~:~~~
-,,,,,8NNMNNDN,,,,,,,,,,,,:$7?~+?88D$$IIDD88+,~8?~:=:~,,,,,,,,,,,,:::::::::::~::~
-,,,,,,,,8DND,,,,,,,,,,,,,,=~,,,I8Z$I?DO$88D=~:~=7+=~,,,,,,,,,,,,,,,,::::::::::::
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?I?8OZ77ZO=I?==~~~,,,,,,,,,,,,,,,,,,,,,:::::::::
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,$I?8OO+=~=~~~.,,,,,,,,,,,,,,,,,,,,,,::::::::
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,..,.,+II?.=~,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:,::
+	echo $BLU"""
 $RED _    _                    _   _____  _             _               
 | |  | |                  | | / ____|| |           | |              
 | |__| |  __ _  _ __    __| || (___  | |__    __ _ | | __ ___  _ __ 
@@ -248,9 +229,9 @@ sleep 2
 			NIC="wlan"$NIC
 		fi
 		echo
-		echo $GRN;MON1=$(airmon-ng start $NIC | grep monitor | cut -d ' ' -f 5 | head -c -2);echo " [*] Started $NIC monitor on $MON1"
+			echo $GRN;MON1=$(airmon-ng start $NIC | grep monitor | cut -d ' ' -f 9 | head -c -2 | cut -d ']' -f 2);echo " [*] Started $NIC monitor on $MON1"
 	else
-		echo $GRN;MON1=$(airmon-ng start $NIC 1 | grep monitor | cut -d ' ' -f 5 | head -c -2);echo " [*] Started $NIC monitor on $MON1"
+			echo $GRN;MON1=$(airmon-ng start $NIC | grep monitor | cut -d ' ' -f 9 | head -c -2 | cut -d ']' -f 2);echo " [*] Started $NIC monitor on $MON1"
 	fi
 	if [ $(ifconfig | grep $MON1) -z ] 2> /dev/null
 	then
@@ -261,7 +242,7 @@ sleep 2
 	then
 		A=1
 	else
-		echo $GRN;MON2=$(airmon-ng start $NIC2 6 | grep monitor | cut -d ' ' -f 5 | head -c -2);echo " [*] Started $NIC2 monitor on $MON2"
+		echo $GRN;MON1=$(airmon-ng start $NIC | grep monitor | cut -d ' ' -f 9 | head -c -2 | cut -d ']' -f 2);echo " [*] Started $NIC monitor on $MON1"
 		if [ $(ifconfig | grep $MON2) -z ] 2> /dev/null
 		then
 			echo $RED;$COLOR 1;$COLOR2 9;echo " [*] ERROR: $NIC2 card could not be started! "$RST
